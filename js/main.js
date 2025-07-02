@@ -269,6 +269,7 @@ AOS.init({
   $(document).ready(function () {
 
 	const projectText = document.querySelector("#projects-section p");
+
   	if (window.innerWidth <= 768) {
     	// Rileva dispositivi mobili
     	projectText.textContent = "Click on each card to discover more information about the project";
@@ -312,7 +313,6 @@ AOS.init({
       delayedHover(littlestarCard);
       delayedHover(holtCard);
     } else {
-      console.log("Mobile view detected, using click events instead.");
 
       function toggleCardInfo(card) {
         card.on("click", function () {
