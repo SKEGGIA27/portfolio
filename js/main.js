@@ -271,9 +271,14 @@ AOS.init({
 	const projectText = document.querySelector("#projects-section p");
 
   	if (window.innerWidth <= 768) {
-    	// Rileva dispositivi mobili
-    	projectText.textContent = "Click on each card to discover more information about the project";
-  	}
+      // Rileva dispositivi mobili
+      projectText.textContent = "Click on each card to discover more information about the project";
+
+      // Close mobile menu after clicking a link
+      $("#ftco-nav a").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
+      });
+    }
 
     //trovo i riferimenti alle card dei progetti
     var linkCard = $("#Link-card");
@@ -290,10 +295,12 @@ AOS.init({
         card.hover(
           function () {
             timer = setTimeout(() => {
+              console.log("Dimensione attuale della card :", card.height());
               $(this).find(".icon").hide();
               $(this).find(".desc").hide();
               $(this).find(".info-projects").hide();
               $(this).find(".project-explanation").show();
+              console.log("Dimensione attuale della card :", card.height());
             }, 1000);
             $(this).data("hover-timer", timer);
           },

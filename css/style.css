@@ -8578,6 +8578,7 @@ h1, h2, h3, h4, h5,
             .owl-carousel.home-slider .slider-item .slider-text .one-third {
               width: 85%;
               left: 160px;
+              height: 100% !important;
              } }
           @media (max-width: 991.98px) {
             .owl-carousel.home-slider .slider-item .slider-text .one-third {
