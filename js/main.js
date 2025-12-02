@@ -295,12 +295,12 @@ AOS.init({
         card.hover(
           function () {
             timer = setTimeout(() => {
-              console.log("Dimensione attuale della card :", card.height());
+              
               $(this).find(".icon").hide();
               $(this).find(".desc").hide();
               $(this).find(".info-projects").hide();
               $(this).find(".project-explanation").show();
-              console.log("Dimensione attuale della card :", card.height());
+              
             }, 1000);
             $(this).data("hover-timer", timer);
           },
