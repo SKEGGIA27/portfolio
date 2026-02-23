@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    let currentTheme = 'light';
+    let currentTheme = 'dark';
     if (savedTheme) {
         currentTheme = savedTheme;
     } else if (systemPrefersDark) {
-        // currentTheme = 'dark'; // User preferred light default
+        currentTheme = 'dark';
     }
 
     htmlElement.setAttribute('data-theme', currentTheme);

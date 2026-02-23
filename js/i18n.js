@@ -1,5 +1,5 @@
 let translations = {};
-let currentLang = localStorage.getItem('lang') || 'it'; // Default Italian
+let currentLang = localStorage.getItem('lang') || 'en'; // Default English
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Load translations
