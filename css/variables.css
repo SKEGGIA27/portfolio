@@ -1,0 +1,96 @@
+:root {
+  /* Brand Colors */
+  --primary-blue: #007bff;
+  --primary-blue-hover: #0056b3;
+  --accent-cyan: #00d2ff;
+
+  /* Core Variables */
+  --font-family: 'Poppins', sans-serif;
+  --transition-speed: 0.3s;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 12px;
+  --card-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+
+  /* Light Theme (Default) */
+  --bg-color: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-soft: #f9fbff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: rgba(0, 123, 255, 0.15);
+  --glow-effect: 0 0 25px rgba(0, 123, 255, 0.3);
+  --lang-bg: rgb(229, 229, 229);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-color: #0f172a;
+  /* Slate 900 */
+  --bg-surface: #1e293b;
+  /* Slate 800 */
+  --bg-soft: rgba(255, 255, 255, 0.03);
+  --bg-glass: rgba(15, 23, 42, 0.7);
+  --text-primary: #f1f5f9;
+  /* Slate 100 */
+  --text-secondary: #cbd5e1;
+  /* Slate 300 */
+  --text-muted: #94a3b8;
+  /* Slate 400 */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --glow-effect: 0 0 25px rgba(0, 210, 255, 0.2);
+  --lang-bg: rgb(44, 44, 62);
+}
+
+/* Base Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--accent-cyan);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}

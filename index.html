@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luca Orlandi - Software & Mobile App Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/bg_1.jpeg">
+    <!-- Per device Apple (opzionale) -->
+    <link rel="apple-touch-icon" href="images/bg_1.jpeg">
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Portfolio di Luca Orlandi, software & mobile app developer. Scopri i miei progetti e competenze.">
+    <meta property="og:title" content="Luca Orlandi - Portfolio">
+    <meta property="og:description" content="Software & mobile app developer. Scopri i miei progetti e competenze.">
+    <meta property="og:image" content="images/bg_1.jpeg">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+
+    <style>
+        /* Base Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="floating-toggles">
+        <!-- Theme Toggle Animation -->
+        <div class="theme-scale-wrapper">
+            <label class="toggle-wrapper" for="theme-toggle" aria-label="Cambia tema">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox" />
+                <div class="toggle-bg">
+                    <div class="bg-day">
+                        <div class="cloud cloud-1"></div>
+                        <div class="cloud cloud-2"></div>
+                    </div>
+                    <div class="bg-night">
+                        <div class="star star-1"></div>
+                        <div class="star star-2"></div>
+                        <div class="star star-3"></div>
+                        <div class="star star-4"></div>
+                        <div class="shooting-star"></div>
+                    </div>
+                    <!-- Bagliore -->
+                    <div class="handle-glow"></div>
+                    <!-- Raggi -->
+                    <div class="sun-rays">
+                        <div class="ray ray-1"></div>
+                        <div class="ray ray-2"></div>
+                        <div class="ray ray-3"></div>
+                        <div class="ray ray-4"></div>
+                        <div class="ray ray-5"></div>
+                        <div class="ray ray-6"></div>
+                        <div class="ray ray-7"></div>
+                        <div class="ray ray-8"></div>
+                    </div>
+                </div>
+                <!-- Handle -->
+                <div class="handle">
+                    <div class="craters">
+                        <div class="crater crater-1"></div>
+                        <div class="crater crater-2"></div>
+                        <div class="crater crater-3"></div>
+                    </div>
+                </div>
+            </label>
+        </div>
+
+        <!-- Language Switcher Segmented Control -->
+        <div id="lang-switcher" class="lang-switcher" data-selected="it">
+            <svg class="lang-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+            </svg>
+            <div class="lang-options">
+                <div class="lang-slider"></div>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="it">IT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">Luca <span>Orlandi</span></a>
+
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active" data-i18n="nav_home">Home</a>
+                <a href="#about" class="nav-link" data-i18n="nav_about">Chi Sono</a>
+                <a href="#interests" class="nav-link" data-i18n="nav_interests">Interessi</a>
+                <a href="#experiences" class="nav-link" data-i18n="nav_experiences">Esperienze</a>
+                <a href="#projects" class="nav-link" data-i18n="nav_projects">Progetti</a>
+                <a href="#skills" class="nav-link" data-i18n="nav_skills">Competenze</a>
+                <a href="#blog" class="nav-link" data-i18n="nav_blog">Blog</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contatti</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="container grid-2 flex-center">
+                <div class="hero-content reveal">
+                    <span class="subheading" data-i18n="hero_greeting">Ciao!</span>
+                    <h1 class="hero-title"><span data-i18n="hero_im">Sono</span> <span class="text-gradient">Luca</span>
+                    </h1>
+                    <h2 class="hero-subtitle" data-i18n="hero_subtitle">Sviluppatore Software e App Mobile Determinato
+                    </h2>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary open-contact-modal" data-type="general"
+                            data-i18n="hero_btn_hire">Contattami</button>
+                        <a href="#projects" class="btn btn-outline" data-i18n="hero_btn_works">I miei lavori</a>
+                    </div>
+                </div>
+                <div class="hero-image reveal delay-1 glass-panel memoji-wrap">
+                    <img src="images/bg_1.jpeg" alt="Luca Orlandi Memoji">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="about_title">Chi Sono</h2>
+                </div>
+                <div class="grid-2 flex-center">
+                    <div class="about-image reveal glass-panel memoji-wrap">
+                        <img src="images/about_me.jpeg" alt="About Me Memoji">
+                    </div>
+                    <div class="about-text reveal delay-1">
+                        <p data-i18n="about_desc_1">Sono una persona curiosa e tenace, pienamente dedita a ogni progetto
+                            che intraprendo. Apprezzo molto il lavoro di squadra e l'interazione con gli altri.</p>
+                        <p data-i18n="about_desc_2">Nel tempo libero, amo uscire con gli amici, andare a pesca ed
+                            esplorare le montagne.</p>
+
+                        <ul class="about-info-list" style="margin-top: 2rem;">
+                            <li><i class="fas fa-user"></i> <strong><span
+                                        data-i18n="about_info_name">Nome:</span></strong> Luca Orlandi</li>
+                            <li><i class="fas fa-calendar-alt"></i> <strong><span data-i18n="about_info_dob">Data di
+                                        nascita:</span></strong> June 27, 2002</li>
+                            <li><i class="fas fa-map-marker-alt"></i> <strong><span
+                                        data-i18n="about_info_city">Città:</span></strong> Rome</li>
+                            <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a
+                                    href="https://www.linkedin.com/in/luca-orlandi-a84a28321/" target="_blank">Luca
+                                    Orlandi</a></li>
+                            <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a
+                                    href="https://github.com/SKEGGIA27" target="_blank">SKEGGIA27</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests" class="interests-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="interests_title">I Miei Interessi</h2>
+                </div>
+                <div class="grid-2 flex-center">
+                    <div class="interests-text reveal">
+                        <p data-i18n="interests_desc_1">Attualmente studio Informatica presso l'Università degli Studi
+                            di
+                            Roma Tor Vergata. Nutro un particolare interesse per lo sviluppo di applicazioni mobile e
+                            software, database e algoritmi.</p>
+                        <p data-i18n="interests_desc_2" style="margin-top: 1rem;">Altri interessi nel mondo IT?
+                            Assolutamente! Sto approfondendo il reverse engineering, la sicurezza offensiva e le
+                            tecnologie di automazione.</p>
+
+                        <div class="interests-tags"
+                            style="margin-top: 2rem; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span class="badge"><i class="fas fa-laptop-code"></i> Software Dev</span>
+                            <span class="badge"><i class="fas fa-mobile-alt"></i> Mobile Dev</span>
+                            <span class="badge"><i class="fas fa-database"></i> Databases</span>
+                            <span class="badge"><i class="fas fa-shield-alt"></i> OffSec</span>
+                            <span class="badge"><i class="fas fa-magnifying-glass"></i> Reverse Engineering</span>
+                            <span class="badge"><i class="fas fa-robot"></i> Automation</span>
+                        </div>
+                    </div>
+                    <div class="interests-image reveal delay-1 glass-panel memoji-wrap">
+                        <img src="images/what_I_like.png" alt="My Interests Memoji">
+                    </div>
+                </div>
+        </section>
+
+        <!-- Experiences Section -->
+        <section id="experiences" class="experiences-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="exp_title">Esperienze e Competizioni</h2>
+                    <p data-i18n="exp_desc">Le esperienze professionali e le competizioni a cui ho partecipato.</p>
+                </div>
+
+                <div class="timeline grid-2">
+                    <!-- Column 1 -->
+                    <div class="timeline-col reveal">
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_aval_title">Tor Vergata x Avalanche Hackathon 2025</h3>
+                            <span class="date">2025</span>
+                            <p data-i18n="exp_aval_desc">L'Hackaton consisteva nella creazione di un progetto
+                                decentralizzato e basato sulla blockchain di Avalanche.</p>
+                            <span class="qualification" data-i18n="exp_aval_qual">Qualifica: 2° Posto</span>
+                            <a href="https://github.com/SKEGGIA27/SkillWager-Avalanche-Hackaton-2025" target="_blank"
+                                class="btn btn-primary" style="margin-top: 1rem;" data-i18n="exp_aval_btn">Vedi
+                                repository GitHub</a>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_hackathon_title">Tor Vergata Hackathon - Vincitore</h3>
+                            <span class="date">2024</span>
+                            <p data-i18n="exp_hackathon_desc">Io e il mio team abbiamo vinto il torneo Hackathon
+                                organizzato dal dipartimento di Informatica dell'Università degli Studi di Roma Tor
+                                Vergata.</p>
+                            <span class="qualification" data-i18n="exp_hackathon_qual">Qualifica: Vincitore</span>
+                            <a href="https://github.com/SKEGGIA27/Tor-Vergata-Hackaton-2024" target="_blank"
+                                class="btn btn-primary" style="margin-top: 1rem;" data-i18n="exp_hackathon_btn">Vedi
+                                repository GitHub</a>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_aiv3_title">AIV - 3° Anno</h3>
+                            <span class="date">2021</span>
+                            <p data-i18n="exp_aiv3_desc">Partecipazione al terzo anno del corso AIV, progettazione e
+                                sviluppo di un ulteriore videogioco 2D.</p>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_aiv2_title">AIV - 2° Anno</h3>
+                            <span class="date">2020</span>
+                            <p data-i18n="exp_aiv2_desc">Partecipazione al secondo anno del corso AIV, progettazione e
+                                sviluppo pratico di un videogioco 2D.</p>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_aiv1_title">AIV - 1° Anno</h3>
+                            <span class="date">2019</span>
+                            <p data-i18n="exp_aiv1_desc">Partecipazione al primo anno del corso AIV, introduzione al
+                                mondo dello sviluppo di videogiochi e alle tecniche di programmazione di base.</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="timeline-col reveal delay-1">
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_degree_title">Diploma di Maturità Informatica</h3>
+                            <span class="date">2016-2021</span>
+                            <p data-i18n="exp_degree_desc">Diploma conseguito in Informatica e Telecomunicazioni, con
+                                specializzazione in programmazione software e mobile.</p>
+                            <span class="qualification" data-i18n="exp_degree_grade">Voto: 99/100</span>
+                            <button class="btn btn-primary open-contact-modal" data-type="cv" style="margin-top: 1rem;"
+                                data-i18n="exp_degree_btn">Richiedi il mio CV da studente</button>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_leader_title">Team leader in competizioni internazionali</h3>
+                            <span class="date">2021</span>
+                            <p data-i18n="exp_leader_desc">Team leader dell'Istituto Galileo Galilei alle competizioni
+                                internazionali di programmazione organizzate da Manpower Group Experis.</p>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_cyber_finalist_title">Cyberchallenge - Finalista</h3>
+                            <span class="date">2020</span>
+                            <p data-i18n="exp_cyber_desc">Partecipazione alla competizione CyberChallenge. La sfida si
+                                articolava in diverse prove di logica e programmazione.</p>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3 data-i18n="exp_cyber_participant_title">Cyberchallenge - Partecipante</h3>
+                            <span class="date">2021</span>
+                            <p data-i18n="exp_cyber_desc">Partecipazione alla competizione CyberChallenge. La sfida si
+                                articolava in diverse prove di logica e programmazione.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="proj_title">I Miei Progetti</h2>
+                    <p data-i18n="proj_desc">Progetti che ho sviluppato. Clicca su ogni card per scoprire maggiori
+                        informazioni.</p>
+                </div>
+
+                <div class="grid-3">
+                    <!-- Project 1 -->
+                    <article class="card project-card reveal">
+                        <div class="project-icon">
+                            <img src="images/link-icon.png" alt="Link App Icon">
+                        </div>
+                        <h3>Link</h3>
+                        <p class="tagline">Covid-19 tracking app</p>
+                        <div class="project-content">
+                            <div class="project-desc">
+                                <p data-i18n="proj_link_desc">Applicazione mobile sviluppata a scopo dimostrativo
+                                    durante la pandemia di Covid-19. Consente agli utenti di registrare in modo sicuro i
+                                    propri contatti e invia notifiche automatiche nel caso in cui venga segnalata una
+                                    positività.</p>
+                            </div>
+                            <button class="btn btn-outline project-info-btn"><i class="fas fa-info-circle"></i> <span
+                                    data-i18n="proj_more_info">Più Informazioni</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="card project-card reveal delay-1">
+                        <div class="project-icon">
+                            <img src="images/sporty-icon.png" alt="Sporty App Icon">
+                        </div>
+                        <h3>Sporty</h3>
+                        <p class="tagline">Sport matchmaking app</p>
+                        <div class="project-content">
+                            <div class="project-desc">
+                                <p data-i18n="proj_sporty_desc">Un'app innovativa dedicata agli appassionati di sport,
+                                    progettata per organizzare incontri amichevoli su base geolocalizzata. Permette agli
+                                    utenti di selezionare lo sport, il livello di difficoltà e l'area per trovare
+                                    potenziali avversari.</p>
+                            </div>
+                            <button class="btn btn-outline project-info-btn"><i class="fas fa-info-circle"></i> <span
+                                    data-i18n="proj_more_info">Più Informazioni</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="card project-card reveal delay-2">
+                        <div class="project-icon">
+                            <img src="images/findem_logo.png" alt="Find 'Em Icon">
+                        </div>
+                        <h3>Find 'Em</h3>
+                        <p class="tagline">Web automation tool</p>
+                        <div class="project-content">
+                            <div class="project-desc">
+                                <p data-i18n="proj_findem_desc">Un potente strumento di automazione web per botter.
+                                    Include un modulo Queue-it, auto-checkout per diverse piattaforme, monitoraggio
+                                    delle offerte in tempo reale, generatore di account Shopify, booster di
+                                    visualizzazioni su Vinted e molto altro.</p>
+                            </div>
+                            <button class="btn btn-outline project-info-btn"><i class="fas fa-info-circle"></i> <span
+                                    data-i18n="proj_more_info">Più Informazioni</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="card project-card reveal">
+                        <div class="project-icon">
+                            <img src="images/littlestar.png" alt="Littlestar Icon">
+                        </div>
+                        <h3>Littlestar</h3>
+                        <p class="tagline">Pet dating app</p>
+                        <div class="project-content">
+                            <div class="project-desc">
+                                <p data-i18n="proj_littlestar_desc">Applicazione social per i proprietari di animali,
+                                    ideata per espandere la rete sociale dei propri cuccioli. Permette agli utenti di
+                                    creare profili, interagire, chattare e organizzare incontri nei parchi.</p>
+                            </div>
+                            <button class="btn btn-outline project-info-btn"><i class="fas fa-info-circle"></i> <span
+                                    data-i18n="proj_more_info">Più Informazioni</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="card project-card reveal delay-1">
+                        <div class="project-icon">
+                            <img src="images/deadlockgen.png" alt="Deadlock checker Icon"
+                                style="width: 70px; height: 70px;">
+                        </div>
+                        <h3>Deadlock checker</h3>
+                        <p class="tagline">For FIFO-based operating systems</p>
+                        <div class="project-content">
+                            <div class="project-desc">
+                                <p data-i18n="proj_holt_desc">Uno strumento diagnostico didattico basato sull'analisi
+                                    dei grafi di Holt per rilevare potenziali situazioni di deadlock nei sistemi
+                                    operativi che adottano la politica di allocazione delle risorse FIFO.</p>
+                            </div>
+                            <button class="btn btn-outline project-info-btn"><i class="fas fa-info-circle"></i> <span
+                                    data-i18n="proj_more_info">Più Informazioni</span></button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="nav_skills">Competenze</h2>
+                    <p>Programming languages and skills I have acquired.</p>
+                </div>
+
+                <div class="skills-grid grid-3 reveal delay-1">
+                    <div class="skills-category card">
+                        <h3><i class="fas fa-code"></i> Core Languages</h3>
+                        <div class="skills-tags" style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:10px;">
+                            <span class="badge">Java</span>
+                            <span class="badge">C</span>
+                            <span class="badge">C++</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">HTML / CSS</span>
+                            <span class="badge">Prolog</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category card">
+                        <h3><i class="fas fa-mobile-alt"></i> Mobile & Web</h3>
+                        <div class="skills-tags" style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:10px;">
+                            <span class="badge">Mobile App Development</span>
+                            <span class="badge">Flutter</span>
+                            <span class="badge">NodeJS</span>
+                            <span class="badge">API Development</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category card">
+                        <h3><i class="fas fa-database"></i> Databases</h3>
+                        <div class="skills-tags" style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:10px;">
+                            <span class="badge">SQL Databases</span>
+                            <span class="badge">NoSQL Databases</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="blog_title">Il Mio Blog Open Source</h2>
+                    <p data-i18n="blog_desc">Articoli e approfondimenti tecnici sui miei contributi e progetti open
+                        source.</p>
+                </div>
+
+                <div class="blog-coming-soon grid-1 flex-center reveal delay-1"
+                    style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: center; text-align: center; padding: 4rem 2rem; background: var(--bg-soft); border-radius: var(--border-radius); border: 2px dashed var(--border-color);">
+                    <i class="fas fa-pencil-ruler" style="font-size: 3rem; color: var(--primary-blue);"></i>
+                    <h3 style="font-size: 1.5rem; margin: 0;" data-i18n="blog_coming_soon">I miei articoli
+                        saranno pubblicati a breve.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Moments Section -->
+        <section id="moments" class="moments-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="moments_title">Momenti</h2>
+                    <p data-i18n="moments_desc">Alcune immagini scattate durante le fasi di sviluppo dei miei progetti e
+                        le esperienze a cui ho partecipato.</p>
+                </div>
+
+                <div class="grid-3 moments-grid">
+                    <div class="moment-item card reveal">
+                        <div class="moment-img-wrapper">
+                            <img src="images/moment2.jpg" alt="Link Development">
+                        </div>
+                        <div class="moment-info">
+                            <h3 data-i18n="moments_link_title">Sviluppo di Link</h3>
+                            <p data-i18n="moments_link_desc">Foto scattata nel pieno dello sviluppo dell'app Link. Una
+                                sfida impegnativa, portata a termine con grande dedizione.</p>
+                        </div>
+                    </div>
+
+                    <div class="moment-item card reveal delay-1">
+                        <div class="moment-img-wrapper">
+                            <img src="images/moment3.jpg" alt="Sporty Team">
+                        </div>
+                        <div class="moment-info">
+                            <h3 data-i18n="moments_sporty_title">Team di sviluppo Sporty</h3>
+                            <p data-i18n="moments_sporty_desc">Il team di sviluppo insieme al Professor Luigi Amato nel
+                                giorno della presentazione.</p>
+                        </div>
+                    </div>
+
+                    <div class="moment-item card reveal delay-2">
+                        <div class="moment-img-wrapper">
+                            <img src="images/moment1.jpg" alt="Network Infrastructure">
+                        </div>
+                        <div class="moment-info">
+                            <h3 data-i18n="moments_infra_title">Infrastruttura di rete Sporty</h3>
+                            <p data-i18n="moments_infra_desc">Un semplice esempio che rappresenta la progettazione
+                                dell'infrastruttura di rete del database.</p>
+                        </div>
+                    </div>
+
+                    <div class="moment-item card reveal">
+                        <div class="moment-img-wrapper">
+                            <img src="images/hackaton1.jpg" alt="Hackathon">
+                        </div>
+                        <div class="moment-info">
+                            <h3 data-i18n="moments_hack_title">Durante la competizione</h3>
+                            <p data-i18n="moments_hack_desc">Uno scatto effettuato durante la competizione Hackathon
+                                2024.</p>
+                        </div>
+                    </div>
+
+                    <div class="moment-item card reveal delay-1">
+                        <div class="moment-img-wrapper">
+                            <img src="images/hackaton2.jpg" alt="Hackathon Award">
+                        </div>
+                        <div class="moment-info">
+                            <h3 data-i18n="moments_hack_award_title">Premiazione Hackathon 2024</h3>
+                            <p data-i18n="moments_hack_award_desc">Io insieme a due membri del mio team alla cerimonia
+                                di premiazione.</p>
+                        </div>
+                    </div>
+
+                    <div class="moment-item card reveal delay-2">
+                        <div class="moment-img-wrapper">
+                            <img src="images/findem_2.png" alt="Queue-it Test">
+                        </div>
+                        <div class="moment-info">
+                            <h3 data-i18n="moments_findem_title">Primi passi</h3>
+                            <p data-i18n="moments_findem_desc">Screenshot acquisito durante i primi test operativi del
+                                modulo Queue-it per Find 'Em.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container grid-2 flex-center">
+                <div class="contact-image reveal glass-panel memoji-wrap">
+                    <img src="images/contact_me.jpeg" alt="Contact Me Memoji">
+                </div>
+
+                <div class="contact-text reveal delay-1">
+                    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                        <h2 data-i18n="contact_title">Contattami</h2>
+                        <p data-i18n="contact_desc">Vuoi conoscermi meglio o scoprire di più sui miei progetti? Non
+                            esitare a contattarmi!</p>
+                    </div>
+
+                    <div class="contact-info-boxes"
+                        style="display:flex; flex-direction:column; gap:1.5rem; max-width: 400px;">
+                        <button class="btn btn-primary open-contact-modal" data-type="general"
+                            style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1.1rem; width: 100%;">
+                            <i class="fas fa-paper-plane"></i> <span data-i18n="contact_btn_text">Contattami</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer"
+        style="background:var(--bg-surface); padding:4rem 0 0; border-top:1px solid var(--border-color);">
+        <div class="container grid-3" style="margin-bottom:3rem;">
+            <div class="footer-col">
+                <h3 data-i18n="footer_info_title" style="margin-bottom:1rem;">Info</h3>
+                <p data-i18n="footer_info_desc" style="color:var(--text-secondary); font-size:0.95rem;">Questo è il mio
+                    portfolio. Se hai ulteriori domande o desideri metterti in contatto con me, utilizza uno dei
+                    recapiti o canali social forniti. Grazie!</p>
+            </div>
+            <div class="footer-col">
+                <h3 data-i18n="footer_links_title" style="margin-bottom:1rem;">Link Utili</h3>
+                <ul style="display:flex; flex-direction:column; gap:0.5rem;">
+                    <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav_about">Chi Sono</a></li>
+                    <li><a href="#projects" data-i18n="nav_projects">Progetti</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 style="margin-bottom:1rem;">Social</h3>
+                <div class="social-links" style="display:flex; gap:1rem; font-size:1.5rem;">
+                    <a href="https://github.com/SKEGGIA27" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/luca-orlandi-a84a28321/" target="_blank"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://skeggia27.github.io/portfolio" target="_blank" aria-label="Portfolio"><i
+                            class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"
+            style="text-align:center; padding:1.5rem 0; border-top:1px solid var(--border-color);">
+            <div class="container">
+                <p style="color:var(--text-muted); font-size:0.9rem; margin:0;">&copy; <span id="current-year"></span>
+                    Luca Orlandi. <span data-i18n="footer_rights">Tutti i diritti riservati.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal-content glass-panel"
+            style="min-height: 480px; display: flex; flex-direction: column; overflow: hidden;">
+            <button class="close-modal-btn" aria-label="Close modal" id="closeModalBtn">&times;</button>
+
+            <!-- Form Container -->
+            <div id="formContainer" class="form-container transition-all" style="width: 100%; flex: 1;">
+                <div class="modal-header">
+                    <h3 data-i18n="contact_form_title">Inviami un messaggio</h3>
+                </div>
+                <form id="contactForm" action="https://formsubmit.co/ajax/ddaf89af940da045dafa0071ed6e305b"
+                    method="POST">
+                    <div class="contact-form-group">
+                        <label for="senderEmail" data-i18n="contact_form_email_label">La tua email</label>
+                        <input type="email" id="senderEmail" name="email" required
+                            data-i18n-placeholder="contact_form_email_placeholder"
+                            placeholder="es. mario.rossi@email.com">
+                    </div>
+                    <div class="contact-form-group">
+                        <label for="messageSubject" data-i18n="contact_form_subject_label">Oggetto</label>
+                        <input type="text" id="messageSubject" name="_subject" required
+                            data-i18n-placeholder="contact_form_subject_placeholder"
+                            placeholder="Di cosa vorresti parlare?">
+                    </div>
+                    <div class="contact-form-group">
+                        <label for="messageBody" data-i18n="contact_form_message_label">Messaggio</label>
+                        <textarea id="messageBody" name="message" rows="5" required
+                            data-i18n-placeholder="contact_form_message_placeholder"
+                            placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                    </div>
+                    <div class="form-messages" id="formMessages" style="display:none;"></div>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitContactBtn">
+                        <span data-i18n="contact_form_submit">Invia messaggio</span>
+                        <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Animation Container -->
+            <div id="successAnimationContainer" class="animation-container">
+                <div class="animation-stage" id="animationStage">
+                    <!-- 1. Busta (Envelope) -->
+                    <svg viewBox="0 0 160 160" class="envelope-svg">
+                        <path d="M10 60 L150 60 L150 130 A10 10 0 0 1 140 140 L20 140 A10 10 0 0 1 10 130 Z"
+                            fill="var(--primary-blue-hover)" />
+                        <g class="letter">
+                            <rect width="100" height="70" rx="4" fill="#ffffff" />
+                            <line x1="15" y1="20" x2="60" y2="20" stroke="#e2e8f0" stroke-width="6"
+                                stroke-linecap="round" />
+                            <line x1="15" y1="35" x2="85" y2="35" stroke="#e2e8f0" stroke-width="6"
+                                stroke-linecap="round" />
+                            <line x1="15" y1="50" x2="70" y2="50" stroke="#e2e8f0" stroke-width="6"
+                                stroke-linecap="round" />
+                        </g>
+                        <path d="M10 60 L80 105 L10 140 Z" fill="var(--primary-blue)" />
+                        <path d="M150 60 L80 105 L150 140 Z" fill="var(--primary-blue)"
+                            style="filter: brightness(1.2)" />
+                        <path d="M10 140 L80 105 L150 140 Z" fill="var(--primary-blue)"
+                            style="filter: brightness(1.1)" />
+                        <path class="flap" d="M10 60 L80 15 L150 60 Z" fill="var(--primary-blue)"
+                            style="transform-origin: 80px 60px;" />
+                    </svg>
+
+                    <!-- 2. Aeroplanino di Carta -->
+                    <svg viewBox="0 0 24 24" class="plane-svg">
+                        <polygon points="22,2 2,9 11,13" fill="#60a5fa" />
+                        <polygon points="22,2 11,13 15,22" fill="#3b82f6" />
+                    </svg>
+
+                    <!-- 3. Icona Successo -->
+                    <svg viewBox="0 0 100 100" class="success-svg">
+                        <circle cx="50" cy="50" r="45" fill="#22c55e"
+                            style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" />
+                        <path class="check-path" d="M30 50 L45 65 L70 35" fill="none" stroke="#ffffff" stroke-width="8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <g class="particles">
+                            <circle cx="50" cy="5" r="4" fill="#4ade80" />
+                            <circle cx="95" cy="50" r="4" fill="#4ade80" />
+                            <circle cx="50" cy="95" r="4" fill="#4ade80" />
+                            <circle cx="5" cy="50" r="4" fill="#4ade80" />
+                            <circle cx="20" cy="20" r="3" fill="#86efac" />
+                            <circle cx="80" cy="80" r="3" fill="#86efac" />
+                            <circle cx="80" cy="20" r="3" fill="#86efac" />
+                            <circle cx="20" cy="80" r="3" fill="#86efac" />
+                        </g>
+                    </svg>
+
+                    <!-- Testo di Successo -->
+                    <div class="success-text" id="successText">
+                        <h3 data-i18n="contact_form_success">Email Inviata!</h3>
+                        <button type="button" id="resetFormBtn" class="reset-form-btn"
+                            data-i18n="contact_form_reset">Scrivi un altro messaggio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Content Data directly injected to prevent fetch CORS issues from local file system without server -->
+    <script>
+        window.translations = {
+            "it": {
+                "nav_home": "Home", "nav_about": "Chi Sono", "nav_interests": "Interessi", "nav_experiences": "Esperienze",
+                "nav_projects": "Progetti", "nav_skills": "Competenze", "nav_blog": "Blog", "nav_moments": "Momenti", "nav_contact": "Contatti",
+                "hero_greeting": "Ciao!", "hero_im": "Sono", "hero_subtitle": "Sviluppatore Software e App Mobile Determinato",
+                "hero_btn_hire": "Contattami", "hero_btn_works": "I miei lavori",
+                "about_title": "Chi Sono", "about_desc_1": "Sono una persona curiosa e tenace, pienamente dedita a ogni progetto che intraprendo. Apprezzo molto il lavoro di squadra e l'interazione con gli altri.",
+                "about_desc_2": "Nel tempo libero, amo uscire con gli amici, andare a pesca ed esplorare le montagne.",
+                "about_info_name": "Nome:", "about_info_dob": "Data di nascita:", "about_info_city": "Città:",
+                "interests_title": "I Miei Interessi", "interests_desc_1": "Attualmente studio Informatica presso l'Università degli Studi di Roma Tor Vergata. Nutro un particolare interesse per lo sviluppo di applicazioni mobile e software, database e algoritmi.",
+                "interests_desc_2": "Altri interessi nel mondo IT? Assolutamente! Sto approfondendo il reverse engineering, la sicurezza offensiva e le tecnologie di automazione.",
+                "exp_title": "Esperienze e Competizioni", "exp_desc": "Le esperienze professionali e le competizioni a cui ho partecipato.",
+                "exp_hackathon_title": "Tor Vergata Hackathon - Vincitore", "exp_hackathon_desc": "Io e il mio team abbiamo vinto il torneo Hackathon organizzato dal dipartimento di Informatica dell'Università degli Studi di Roma Tor Vergata.", "exp_hackathon_qual": "Qualifica: Vincitore", "exp_hackathon_btn": "Vedi repository GitHub",
+                "exp_aiv1_title": "AIV - 1° Anno", "exp_aiv1_desc": "Partecipazione al primo anno del corso AIV, introduzione al mondo dello sviluppo di videogiochi e alle tecniche di programmazione di base.",
+                "exp_aiv2_title": "AIV - 2° Anno", "exp_aiv2_desc": "Partecipazione al secondo anno del corso AIV, progettazione e sviluppo pratico di un videogioco 2D.",
+                "exp_aiv3_title": "AIV - 3° Anno", "exp_aiv3_desc": "Partecipazione al terzo anno del corso AIV, progettazione e sviluppo di un ulteriore videogioco 2D.",
+                "exp_degree_title": "Diploma di Maturità Informatica", "exp_degree_desc": "Diploma conseguito in Informatica e Telecomunicazioni, con specializzazione in programmazione software e mobile.", "exp_degree_grade": "Voto: 99/100", "exp_degree_btn": "Richiedi il mio CV da studente",
+                "exp_leader_title": "Team leader in competizioni internazionali", "exp_leader_desc": "Team leader dell'Istituto Galileo Galilei alle competizioni internazionali di programmazione organizzate da Manpower Group Experis.",
+                "exp_cyber_finalist_title": "Cyberchallenge - Finalista", "exp_cyber_desc": "Partecipazione alla competizione CyberChallenge. La sfida si articolava in diverse prove di logica e programmazione.",
+                "exp_cyber_participant_title": "Cyberchallenge - Partecipante",
+                "proj_title": "I Miei Progetti", "proj_desc": "Progetti che ho sviluppato. Clicca su ogni card per scoprire maggiori informazioni.",
+                "proj_link_desc": "App sviluppata durante la pandemia Covid-19 a scopo dimostrativo. Permette agli utenti di registrare in modo sicuro le persone con cui sono entrati in contatto e invia notifiche automatiche in caso di positività segnalata.",
+                "proj_sporty_desc": "Un'app innovativa per gli appassionati di sport per organizzare partite amichevoli in base alla posizione. Permette di selezionare lo sport, la difficoltà e la zona per trovare potenziali avversari.",
+                "proj_findem_desc": "Un potente strumento di automazione web per botter. Include un modulo Queue-it, auto-checkout per diverse piattaforme, monitoraggio offerte real-time, generatore account Shopify, booster viste Vinted e molto altro.",
+                "proj_littlestar_desc": "App social per i proprietari di animali per ampliare la rete sociale dei loro amici a quattro zampe. Permette di creare profili, interagire, organizzare incontri nei parchi e chattare.",
+                "proj_holt_desc": "Strumento diagnostico basato sull'analisi dei grafi di Holt per rilevare situazioni di potenziale deadlock in sistemi operativi che usano la politica di allocazione risorse FIFO.",
+                "proj_btn_github": "Vedi codice su GitHub",
+                "blog_title": "Il Mio Blog Open Source", "blog_desc": "Articoli e approfondimenti tecnici sui miei contributi e progetti open source.", "blog_read_more": "Leggi di più",
+                "moments_title": "Momenti", "moments_desc": "Alcune immagini scattate durante le fasi di sviluppo dei miei progetti e le esperienze a cui ho partecipato.",
+                "moments_link_title": "Sviluppo di Link", "moments_link_desc": "Foto scattata nel pieno dello sviluppo dell'app Link. Una sfida impegnativa, portata a termine con grande dedizione.",
+                "moments_sporty_title": "Team di sviluppo Sporty", "moments_sporty_desc": "Il team di sviluppo insieme al Professor Luigi Amato nel giorno della presentazione.",
+                "moments_infra_title": "Infrastruttura di rete Sporty", "moments_infra_desc": "Un semplice esempio che rappresenta la progettazione dell'infrastruttura di rete del database.",
+                "moments_hack_title": "Durante la competizione", "moments_hack_desc": "Uno scatto effettuato durante la competizione Hackathon 2024.",
+                "moments_hack_award_title": "Premiazione Hackathon 2024", "moments_hack_award_desc": "Io insieme a due membri del mio team alla cerimonia di premiazione.",
+                "moments_findem_title": "Primi passi", "moments_findem_desc": "Screenshot acquisito durante i primi test operativi del modulo Queue-it per Find 'Em.",
+                "contact_title": "Contattami", "contact_desc": "Vuoi conoscermi meglio o scoprire di più sui miei progetti? Non esitare a contattarmi!", "contact_btn_text": "Contattami",
+                "footer_info_title": "Info", "footer_info_desc": "Questo è il mio portfolio. Se hai ulteriori domande o desideri metterti in contatto con me, utilizza uno dei recapiti o canali social forniti. Grazie!", "footer_links_title": "Link Utili", "footer_rights": "Tutti i diritti riservati.",
+                "contact_form_title": "Inviami un messaggio", "contact_form_email_label": "La tua email", "contact_form_email_placeholder": "es. mario.rossi@email.com", "contact_form_subject_label": "Oggetto", "contact_form_subject_placeholder": "Di cosa vorresti parlare?", "contact_form_message_label": "Messaggio", "contact_form_message_placeholder": "Scrivi qui il tuo messaggio...", "contact_form_submit": "Invia messaggio", "contact_form_sending": "Invio in corso...", "contact_form_success": "Messaggio inviato con successo!", "contact_form_error": "Si è verificato un errore. Riprova più tardi.", "cv_request_subject": "Richiesta CV studente", "cv_request_message": "Salve Luca, vorrei richiedere il tuo CV da studente. Attendo tue notizie. Grazie!"
+            },
+            "en": {
+                "nav_home": "Home", "nav_about": "About", "nav_interests": "My Interests", "nav_experiences": "Experiences",
+                "nav_projects": "Projects", "nav_skills": "Skills", "nav_blog": "Blog", "nav_moments": "Moments", "nav_contact": "Contact",
+                "hero_greeting": "Hello!", "hero_im": "I'm", "hero_subtitle": "A Driven App and Software Developer",
+                "hero_btn_hire": "Contact me", "hero_btn_works": "My works",
+                "about_title": "About Me", "about_desc_1": "I am a curious and tenacious person, fully dedicated to every project I take on. I love teamwork and interacting with other people.",
+                "about_desc_2": "In my free time, I love hanging out with friends, going fishing, and hiking in the mountains.",
+                "about_info_name": "Name:", "about_info_dob": "Date of birth:", "about_info_city": "City:",
+                "interests_title": "My Interests", "interests_desc_1": "I am currently studying Computer Science at the University of Rome Tor Vergata. I have a particular interest in mobile applications and software development, databases, and algorithms.",
+                "interests_desc_2": "Other interests in the IT world? Definitely! I'm learning reverse engineering, offensive security, and automation technologies.",
+                "exp_title": "Experiences and Competitions", "exp_desc": "The professional experiences and events I participated in.",
+                "exp_hackathon_title": "Tor Vergata Hackathon - Winner", "exp_hackathon_desc": "My team and I won the Hackathon tournament organized by the Computer Science department of the University of Rome Tor Vergata.", "exp_hackathon_qual": "Qualification: Winner", "exp_hackathon_btn": "See GitHub repository",
+                "exp_aiv1_title": "AIV Participation - 1st year", "exp_aiv1_desc": "Participation in the first year of the AIV course, introduction to the world of video games and basic programming techniques.",
+                "exp_aiv2_title": "AIV Participation - 2nd year", "exp_aiv2_desc": "Participation in the second year of the AIV course, design and development of a 2D video game.",
+                "exp_aiv3_title": "AIV Participation - 3rd year", "exp_aiv3_desc": "Participation in the third year of the AIV course, design and development of another 2D video game.",
+                "exp_degree_title": "Computer Science Degree", "exp_degree_desc": "Graduated in Computer Science and Telecommunications, specialization in software and mobile programming.", "exp_degree_grade": "Grade: 99/100", "exp_degree_btn": " student CV",
+                "exp_leader_title": "Team leader at international programming competitions", "exp_leader_desc": "Galileo Galilei team leader at international programming competitions organized by Manpower Group Experis.",
+                "exp_cyber_finalist_title": "Cyberchallenge - Finalist", "exp_cyber_desc": "Participation in the Cyberchallenge competition. The challenge was divided into several tests of logic and programming.",
+                "exp_cyber_participant_title": "Cyberchallenge - Participant",
+                "proj_title": "My Projects", "proj_desc": "Projects developed by me. Click on each card to discover more information.",
+                "proj_link_desc": "Mobile application developed during the Covid-19 pandemic for demonstration purposes. It allows users to securely log their contacts and sends automatic notifications if a positive case is reported.",
+                "proj_sporty_desc": "An innovative app for sports enthusiasts to organize friendly matches based on location. It allows users to select the sport, difficulty, and area to find potential opponents.",
+                "proj_findem_desc": "A powerful web automation tool for botters. Includes a Queue-it module, auto-checkout for various platforms, real-time offer monitoring, Shopify account generator, Vinted views booster, and much more.",
+                "proj_littlestar_desc": "Social app for pet owners to expand their furry friends' social network. It allows creating profiles, interacting, organizing meetups in parks, and chatting.",
+                "proj_holt_desc": "A school diagnostic tool based on the analysis of Holt graphs to detect potential deadlock situations in operating systems using the FIFO resource allocation policy.",
+                "proj_btn_github": "View code on GitHub",
+                "blog_title": "My Open Source Blog", "blog_desc": "Articles and insights on my open source contributions and projects.", "blog_read_more": "Read more",
+                "moments_title": "Moments", "moments_desc": "Some images taken during the development of my projects and the experiences I participated in.",
+                "moments_link_title": "Link development", "moments_link_desc": "Photo taken in the middle of the development of the Link app. A difficult challenge but completed with great commitment.",
+                "moments_sporty_title": "Sporty development team", "moments_sporty_desc": "The development team together with Professor Amato Luigi on presentation day.",
+                "moments_infra_title": "Sporty network infrastructure", "moments_infra_desc": "A small example representing the design of the database network infrastructure.",
+                "moments_hack_title": "During the competition", "moments_hack_desc": "A photo taken during the Hackathon 2024 competition.",
+                "moments_hack_award_title": "Hackathon 2024 awards", "moments_hack_award_desc": "Me and 2 members of my team at the awards ceremony.",
+                "moments_findem_title": "First steps", "moments_findem_desc": "Screenshot taken during the first tests of the Queue-it module for Find 'Em.",
+                "contact_title": "Contact Me", "contact_desc": "Do you want to know me better or find out more about my projects? Get in touch!", "contact_btn_text": "Contact me",
+                "footer_info_title": "Info", "footer_info_desc": "This is my portfolio. If you have further questions or want to get in touch with me, please use one of the provided addresses or social networks. Thanks!", "footer_links_title": "Quick Links", "footer_rights": "All rights reserved.",
+                "contact_form_title": "Send me a message", "contact_form_email_label": "Your email", "contact_form_email_placeholder": "e.g. john.doe@email.com", "contact_form_subject_label": "Subject", "contact_form_subject_placeholder": "What would you like to talk about?", "contact_form_message_label": "Message", "contact_form_message_placeholder": "Write your message here...", "contact_form_submit": "Send message", "contact_form_sending": "Sending...", "contact_form_success": "Message sent successfully!", "contact_form_error": "An error occurred. Please try again later.", "cv_request_subject": "Student CV Request", "cv_request_message": "Hi Luca, I would like to request your student CV. Looking forward to hearing from you. Thanks!"
+            }
+        };
+
+        // Populate current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="js/theme.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/contact-form.js"></script>
+</body>
+
+</html>
