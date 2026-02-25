@@ -56,4 +56,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // === Desktop-only Interactive Effects ===
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const interactiveCards = document.querySelectorAll('.project-card, .skills-category, .moment-item');
+
+        interactiveCards.forEach(el => {
+            // 3D Magnetic Tilt + Mouse Spotlight (combined)
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const cx = rect.width / 2;
+                const cy = rect.height / 2;
+
+                // 3D Tilt (max ±5°)
+                const rotateX = ((y - cy) / cy) * -5;
+                const rotateY = ((x - cx) / cx) * 5;
+                el.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                el.style.transition = 'transform 0.1s ease-out';
+
+                // Mouse Spotlight (CSS custom properties)
+                el.style.setProperty('--mx', `${x}px`);
+                el.style.setProperty('--my', `${y}px`);
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+                el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+        });
+    }
 });
