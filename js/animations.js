@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const interactiveCards = document.querySelectorAll('.project-card, .skills-category, .moment-item');
 
         interactiveCards.forEach(el => {
+            const isProjectCard = el.classList.contains('project-card');
+            const maxTilt = isProjectCard ? 2 : 5; // Reduced 3D tilt for project cards
+            const translateY = isProjectCard ? -3 : -8; // Reduced lift for project cards
+
             // 3D Magnetic Tilt + Mouse Spotlight (combined)
             el.addEventListener('mousemove', (e) => {
                 const rect = el.getBoundingClientRect();
@@ -70,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cx = rect.width / 2;
                 const cy = rect.height / 2;
 
-                // 3D Tilt (max ±5°)
-                const rotateX = ((y - cy) / cy) * -5;
-                const rotateY = ((x - cx) / cx) * 5;
-                el.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                // 3D Tilt
+                const rotateX = ((y - cy) / cy) * -maxTilt;
+                const rotateY = ((x - cx) / cx) * maxTilt;
+                el.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(${translateY}px)`;
                 el.style.transition = 'transform 0.1s ease-out';
 
                 // Mouse Spotlight (CSS custom properties)
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             el.addEventListener('mouseleave', () => {
                 el.style.transform = '';
-                el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                el.style.transition = 'transform 0.4s ease';
             });
         });
     }

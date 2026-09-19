@@ -283,6 +283,14 @@
   margin-bottom: 0.5rem;
 }
 
+.timeline-card .company {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 0.5rem;
+}
+
 .timeline-card .date {
   display: inline-block;
   font-size: 0.9rem;
@@ -292,6 +300,23 @@
   padding: 4px 12px;
   border-radius: 20px;
   margin-bottom: 1rem;
+}
+
+.timeline-card .date i {
+  margin-right: 5px;
+  font-size: 0.85em;
+}
+
+.timeline-card .timeline-list {
+  list-style-type: disc;
+  margin: 0.75rem 0 0 1.25rem;
+  padding: 0;
+  color: var(--text-secondary);
+}
+
+.timeline-card .timeline-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .timeline-card .qualification {
@@ -307,6 +332,10 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
 }
 
 .project-icon {

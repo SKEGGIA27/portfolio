@@ -10,9 +10,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         translations = await response.json();
     } catch (e) {
         console.warn("Could not load translations via fetch. Loading from fallback variable if defined...");
-        // Assuming we might inject it later if needed, or keeping this for server environment.
-        // For this static portfolio, if fetch fails (file:// protocol), we would ideally attach it as a JS object.
-        // But let's assume standard behavior works (user uses Live Server or prepros).
+        if (typeof window !== 'undefined' && window.translations) {
+            translations = window.translations;
+        }
+    }
+
+    if ((!translations || Object.keys(translations).length === 0) && typeof window !== 'undefined' && window.translations) {
+        translations = window.translations;
     }
 
     // Set initial toggle state UI
